@@ -67,6 +67,12 @@ if (mysqli_num_rows($res)>0)
                             <span class="info-span"><?php echo $result['name'] ?></span>
                           </li>
                           <li>
+                            <span class="title-span">User Name : </span>
+                            <span class="info-span"
+                              ><?php echo $result['user_name'] ?></span
+                            >
+                          </li>
+                          <li>
                             <span class="title-span">Class : </span>
                             <span class="info-span"><?php echo db_scalar("SELECT class_name FROM tbl_class WHERE 1 AND class_id='".$result['std_class_id']."'") ?></span>
                           </li>

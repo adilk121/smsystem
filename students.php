@@ -130,6 +130,7 @@ if(isset($_REQUEST['DelID']))
                           <th>Mobile Number</th> <th>Guardian Name</th> 
                           <?php if($_SESSION['user_role']=='P'){?>
                         <th>Teacher name</th>
+                        <th>User name</th>
                         <?}?>
                           <?php 
                           if($_SESSION['user_role']=='P' || $_SESSION['user_role']=='T'){
@@ -172,6 +173,7 @@ if(isset($_REQUEST['DelID']))
                           <?php if($_SESSION['user_role']=='P'){ ?>
                           <td><?php echo db_scalar("SELECT name FROM tbl_user WHERE 1 and user_id='".$result['std_teacher_id']."'")?></td>
                           <?php }?>
+                          <td><?php echo $result['user_name']?></td>
                           <?php  if($_SESSION['user_role']=='P' || $_SESSION['user_role']=='T'){?>
                           <td class="text-end">
                             <div class="actions">
@@ -190,6 +192,7 @@ if(isset($_REQUEST['DelID']))
                           </td>
 
                           <?php }?>
+                         
                         </tr>
 
                         <?php $i++;}}?>
