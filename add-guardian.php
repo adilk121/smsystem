@@ -84,14 +84,14 @@ if(!empty($_POST['guardian_name'])  && !empty($_POST['guardian_email']) && !empt
                       <div class="col-12 col-sm-6">
                         <div class="form-group">
                           <label>Name</label>
-                          <input type="text" name="guardian_name" id="guardian_name" class="form-control" />
+                          <input type="text" required name="guardian_name" id="guardian_name" class="form-control" />
                         </div>
                       </div>
                       
                       <div class="col-12 col-sm-6">
                         <div class="form-group">
                           <label>Mobile</label>
-                          <input type="text" name="guardian_mobile" id="guardian_mobile" class="form-control" />
+                          <input type="text" required name="guardian_mobile" id="guardian_mobile" class="form-control" />
                         </div>
                       </div>
                       <div class="col-12">
@@ -100,13 +100,13 @@ if(!empty($_POST['guardian_name'])  && !empty($_POST['guardian_email']) && !empt
                       <div class="col-12 col-sm-6">
                         <div class="form-group">
                           <label>Email ID</label>
-                          <input type="email" autocomplete="off" name="guardian_email" id="guardian_email" class="form-control" />
+                          <input type="email" required autocomplete="off" name="guardian_email" id="guardian_email" class="form-control" />
                         </div>
                       </div>
                       <div class="col-12 col-sm-6">
                         <div class="form-group">
                           <label>Password</label>
-                          <input type="password" autocomplete="off" name="guardian_password" id="guardian_password" class="form-control" />
+                          <input type="password" required autocomplete="off" name="guardian_password" id="guardian_password" class="form-control" />
                         </div>
                       </div>
                       

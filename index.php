@@ -21,7 +21,7 @@
               <div class="card bg-one w-100">
                 <div class="card-body">
                   
-                <div
+                <a href="students.php"><div
                     class="db-widgets d-flex justify-content-between align-items-center"
                   >
                     <div class="db-icon">
@@ -45,6 +45,7 @@
                       <h6>Students</h6>
                     </div>
                   </div>
+                </a>
 
                 </div>
               </div>
@@ -60,6 +61,7 @@
             <div class="col-xl-6 col-sm-6 col-12 d-flex">
               <div class="card bg-two w-100">
                 <div class="card-body">
+                <a href="teachers.php">
                   <div
                     class="db-widgets d-flex justify-content-between align-items-center"
                   >
@@ -82,6 +84,7 @@
                       <h6>Teachers</h6>
                     </div>
                   </div>
+                </a>
                 </div>
               </div>
             </div>
@@ -95,6 +98,7 @@
             <div class="col-xl-6 col-sm-6 col-12 d-flex">
               <div class="card bg-three w-100">
                 <div class="card-body">
+                <a href="guardian.php">
                   <div
                     class="db-widgets d-flex justify-content-between align-items-center"
                   >
@@ -116,14 +120,17 @@
                       <h6>Guardians</h6>
                     </div>
                   </div>
+                      </a>
                 </div>
               </div>
             </div>
                  <?php  if($_SESSION['user_role']=='P')
                         { ?>
+
             <div class="col-xl-6 col-sm-6 col-12 d-flex">
               <div class="card bg-two w-100">
                 <div class="card-body">
+                <a href="class.php">
                   <div
                     class="db-widgets d-flex justify-content-between align-items-center"
                   >
@@ -141,6 +148,7 @@
                       <h6>Classes</h6>
                     </div>
                   </div>
+                        </a>
                 </div>
               </div>
             </div>
@@ -154,7 +162,7 @@
           <div class="row">
             <div class="col-md-12 d-flex">
               <div class="card flex-fill">
-                <div class="card-header">
+                <div class="card-header" >
                   <h5 class="card-title">Star Students</h5>
                 </div>
                 <div class="card-body">

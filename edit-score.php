@@ -17,28 +17,46 @@ if(isset($_POST['Submit']))
 {	
 if(!empty($_POST['score_sub_id']) && !empty($_POST['sub_score']))
 {	
+ 
   //all subject score in array
     $subIDNew=$_POST['sub_score'];
-		foreach($subIDNew as $key=>$value){
-    $check_detail = "SELECT * FROM tbl_score WHERE 1 AND score_std_id='$std_id_url' AND score_sub_id='$key'"; // Select One by One Score  of Each Subjects
-    $disk = mysqli_query($con,$check_detail);
+		foreach($subIDNew as $key=>$value)
+    {
+      $check_detail = "SELECT * FROM tbl_score WHERE 1 AND score_std_id='$std_id_url' AND score_sub_id='$key'"; // Select One by One Score  of Each Subjects
+      $disk = mysqli_query($con,$check_detail);
       if(mysqli_num_rows($disk)>0)
       {
         // if subject is already then it will update the score only
+        $maxMarks = "100";
+        if($value>$maxMarks)
+        {
+          $msg="Score should be less than Max Marks";
+        }
+        else
+        {
           $popu = "UPDATE tbl_score SET sub_score='$value' WHERE score_std_id='$std_id_url' AND score_sub_id='$key'";
           mysqli_query($con,$popu);
           $color ="green";  
           $msg='Score Updated Successfully';
+        }
       }else
       {
         //Insert the Record of score in each subject
+        $maxMarks = "100";
+        if($value>$maxMarks)
+        {
+          $msg="Score should be less than Max Marks";
+        }
+        else
+        {
 		      $popu = "INSERT INTO tbl_score SET sub_score='$value',score_std_id='$std_id_url',score_sub_id='$key'";
           mysqli_query($con,$popu);
           $color ="green";  
           $msg='Score Added Successfully';
+        }
       }
-    
     }
+    
 	
 }
 else

@@ -5,6 +5,12 @@ if(isset($_POST['Submit']))
 {	
 if(!empty($_POST['admin_name']) && !empty($_POST['admin_email']) && !empty($_POST['admin_password']) && !empty($_POST['admin_phone']) && !empty($_POST['admin_joining_date']))
 {	
+  $mobileno = $_POST['admin_phone'];
+  if(is_numeric($mobileno))
+  {
+    $mobileregex = "/^[6-9][0-9]{9}$/";
+  if(preg_match($mobileregex, $mobileno))
+  {
     $pswrd_hash = $_POST['admin_password'];
     $hshpswrd=password_hash($pswrd_hash,PASSWORD_DEFAULT);
     $suff = rand(1001,9999);
@@ -28,6 +34,16 @@ if(!empty($_POST['admin_name']) && !empty($_POST['admin_email']) && !empty($_POS
       </script>
       <?php 
        header("location:teachers.php");
+      } 
+      else
+      {
+        $msg ="Mobile no. should be of 10 digits";
+      }
+      } 
+      else
+      {
+         $msg ="Mobile no. should be in digits";
+      } 
     }
     else
     {

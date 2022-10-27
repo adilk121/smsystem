@@ -126,7 +126,7 @@ if(isset($_REQUEST['DelID']))
                           <th>Name</th>
                           <!-- <th>Class</th> -->
                           <th>DOB</th>
-                          <th>Class Name</th>
+                          <th>Class</th>
                           <th>Mobile Number</th> <th>Guardian Name</th> 
                           <?php if($_SESSION['user_role']=='P'){?>
                         <th>Teacher name</th>
