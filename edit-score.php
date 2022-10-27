@@ -20,19 +20,19 @@ if(!empty($_POST['score_sub_id']) && !empty($_POST['sub_score']))
   //all subject score in array
     $subIDNew=$_POST['sub_score'];
 		foreach($subIDNew as $key=>$value){
-    $check_detail = "select * from tbl_score where 1 and score_std_id='$std_id_url' and score_sub_id='$key'"; // Select One by One Score  of Each Subjects
+    $check_detail = "SELECT * FROM tbl_score WHERE 1 AND score_std_id='$std_id_url' AND score_sub_id='$key'"; // Select One by One Score  of Each Subjects
     $disk = mysqli_query($con,$check_detail);
       if(mysqli_num_rows($disk)>0)
       {
         // if subject is already then it will update the score only
-          $popu = "update tbl_score set sub_score='$value' where score_std_id='$std_id_url' and score_sub_id='$key'";
+          $popu = "UPDATE tbl_score SET sub_score='$value' WHERE score_std_id='$std_id_url' AND score_sub_id='$key'";
           mysqli_query($con,$popu);
           $color ="green";  
           $msg='Score Updated Successfully';
       }else
       {
         //Insert the Record of score in each subject
-		      $popu = "insert into tbl_score set sub_score='$value',score_std_id='$std_id_url',score_sub_id='$key'";
+		      $popu = "INSERT INTO tbl_score SET sub_score='$value',score_std_id='$std_id_url',score_sub_id='$key'";
           mysqli_query($con,$popu);
           $color ="green";  
           $msg='Score Added Successfully';
@@ -47,7 +47,7 @@ else
 }
 
 }
-$reso = "select * from tbl_user where 1 and user_id='$std_id_url' and user_role='S'";
+$reso = "SELECT * FROM tbl_user WHERE 1 AND user_id='$std_id_url' AND user_role='S'";
 $numrows = mysqli_query($con,$reso);
 if(mysqli_num_rows($numrows)>0)
 {
@@ -101,7 +101,7 @@ else
 $i=1;
 foreach($res_explode as $vo)
 {
-    $subjects = "select * from tbl_subjects WHERE 1 and sub_id='$vo'";
+    $subjects = "SELECT * FROM tbl_subjects WHERE 1 AND sub_id='$vo'";
     $std_subje = db_query($subjects);
     if(mysqli_num_rows($std_subje)>0)
     {
@@ -114,7 +114,7 @@ foreach($res_explode as $vo)
                           <td>
                             <h2 class="table-avatar">
                               <?php echo $std_subj_list['sub_name'];?>
-                              <input type="hidden" value="<?php $std_SUBID['sub_id']?>" name="score_sub_id">
+                              <input type="hidden" value="<?php echo $std_SUBID['sub_id']?>" name="score_sub_id">
                             </h2>
                           </td>
                           <!-- <td>10 B</td> -->

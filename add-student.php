@@ -95,8 +95,7 @@ if(!empty($_POST['std_name']) && !empty($_POST['std_subject_id']) && !empty($_PO
         $subject="Welcome to SMS";
         //Welcome Mailer for Students Fresh Registration 
         $mailofadmin=db_scalar("SELECT email FROM tbl_user WHERE user_role='P'"); 
- $hostName = $_SERVER['HTTP_HOST'];   
- $psrdmail= $_POST['std_password'];       
+        $psrdmail= $_POST['std_password'];       
  $msgmail="<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
  <html xmlns='http://www.w3.org/1999/xhtml'>
  <head>
@@ -106,22 +105,23 @@ if(!empty($_POST['std_name']) && !empty($_POST['std_subject_id']) && !empty($_PO
  <body>      
     <table align='center' cellSpacing='0' cellPadding='0' width='87%' border='1' style='border:1px solid #e61938'>
    <tbody>
-     <tr>
-       <td vAlign='top' style='background-color:#e61938; padding:10px;font-family:Verdana, Arial, Helvetica, sans-serif; font-size:16px; color:#ffffff; text-align:center; font-weight:bold;' colspan='3' >Enquiry From $hostName</td>
-     </tr>
       <tr>
-       <td width='30%' vAlign='top' style='font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px; color:#003366; background-color:#F9E2DD;padding:10px;' ><strong>Name </strong> </td>
+       <td width='30%' vAlign='top' style='font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px; color:#003366; background-color:#F9E2DD;padding:10px;' ><strong>User name </strong> </td>
        <td vAlign='top' width='70%' style='font-family:Verdana, Arial, Helvetica, sans-serif;padding:10px;'>$add_user_name</td>
      </tr>    
      <tr>
-       <td vAlign='top'  style='font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px; color:#003366; background-color:#F9E2DD;padding:10px;' ><strong>Mobile </strong> </td>
+       <td vAlign='top'  style='font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px; color:#003366; background-color:#F9E2DD;padding:10px;' ><strong>Password </strong> </td>
        <td vAlign='top' style='font-family:Verdana, Arial, Helvetica, sans-serif;padding:10px;'>$psrdmail</td>
      </tr>  
    </tbody>
  </table>
  </body>
  </html>";
-        $headers="From:$mailofadmin";
+        $headers="From:samkhan6623@gmail.com";
+        $headers .= "X-Mailer: PHP/". phpversion();
+        $headers .= "X-Priority: 3 \n";
+        $headers .= "MIME-version: 1.0\n";
+        $headers .= "Content-Type: text/html; charset=iso-8859-1\n"; 
         if(mail($to,$subject,$msgmail,$headers))
         {
           

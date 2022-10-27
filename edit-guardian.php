@@ -13,14 +13,35 @@ if(isset($_POST['Submit']))
 {	
 if(!empty($_POST['user_name']) && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['mobile']))
 {	
+  $mobileno = $_POST['mobile'];
+  if(is_numeric($mobileno))
+  {
+    $mobileregex = "/^[6-9][0-9]{9}$/";
+  if(preg_match($mobileregex, $mobileno))
+  {
   	$sql="UPDATE tbl_user SET 
     user_name='".htmlspecialchars(trim($_POST['user_name']))."',		
     name='".htmlspecialchars(trim($_POST['name']))."',	
     email='".htmlspecialchars(trim(strval($_POST['email'])))."',
     mobile='".htmlspecialchars(trim($_POST['mobile']))."' WHERE user_id='$EditId' and user_role='G'";
     
-	mysqli_query($con,$sql);	
-    echo $msg='Guardian Added Successfully';
+    mysqli_query($con,$sql);	
+    ?>
+    <script>
+      alert("Guardian Added Successfully")
+      </script>
+    <?php 	
+    header("location:teachers.php");
+  } 
+  else
+  {
+    $msg ="Mobile no. should be of 10 digits";
+  }
+  } 
+  else
+  {
+     $msg ="Mobile no. should be in digits";
+  } 
     }
     else
     {

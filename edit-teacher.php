@@ -14,13 +14,34 @@ if(isset($_POST['Submit']))
 {	
 if(!empty($_POST['name']) && !empty($_POST['mobile']) && !empty($_POST['email']) && !empty($_POST['doj']))
 {	
+  $mobileno = $_POST['mobile'];
+  if(is_numeric($mobileno))
+  {
+    $mobileregex = "/^[6-9][0-9]{9}$/";
+  if(preg_match($mobileregex, $mobileno))
+  {
   	$sql="UPDATE tbl_user SET 
     name='".htmlspecialchars(trim($_POST['name']))."',		
     mobile='".htmlspecialchars(trim($_POST['mobile']))."',	
     email='".htmlspecialchars(trim($_POST['email']))."',
     doj='".htmlspecialchars(trim($_POST['doj']))."' WHERE user_id='$teach_ID'";
 	  mysqli_query($con,$sql);	
-    echo $msg='Teacher Updated Successfully';
+    ?>
+    <script>
+      alert("Teacher Updated Successfully")
+      </script>
+    <?php 	
+    header("location:teachers.php");
+  } 
+  else
+  {
+    $msg ="Mobile no. should be of 10 digits";
+  }
+  } 
+  else
+  {
+     $msg ="Mobile no. should be in digits";
+  } 
     }
     else
     {

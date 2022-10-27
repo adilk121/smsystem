@@ -5,6 +5,12 @@ if(isset($_POST['Submit']))
 {	
 if(!empty($_POST['guardian_name'])  && !empty($_POST['guardian_email']) && !empty($_POST['guardian_password']) && !empty($_POST['guardian_mobile']))
 {	
+  $mobileno = $_POST['guardian_mobile'];
+  if(is_numeric($mobileno))
+  {
+    $mobileregex = "/^[6-9][0-9]{9}$/";
+  if(preg_match($mobileregex, $mobileno))
+  {
     $pswrd_hash = $_POST['guardian_password'];
     $hshpswrd=password_hash($pswrd_hash,PASSWORD_DEFAULT);
     $suff = rand(1001,9999);
@@ -25,7 +31,17 @@ if(!empty($_POST['guardian_name'])  && !empty($_POST['guardian_email']) && !empt
       alert("Guardian Add Successfully")
       </script>
     <?php 	
-    header("location:guardian.php");  
+    header("location:guardian.php");
+  } 
+  else
+  {
+    $msg ="Mobile no. should be of 10 digits";
+  }
+  } 
+  else
+  {
+     $msg ="Mobile no. should be in digits";
+  } 
   }
     else
     {
