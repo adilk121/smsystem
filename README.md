@@ -23,24 +23,26 @@ All additional features mentioned in the task document, except the grading syste
 
 username & password:
 
-1- STUDENT LOGIN
+1- PRINCIPAL LOGIN
+admin
+admin@123
 
+
+2- STUDENT LOGIN
 abc_12202
 abc@1
 
 xyz_13483
 xyz@1
 
-2- TEACHER LOGIN
-
+3- TEACHER LOGIN
 teach1934
 t@123
 
 teach6704
 t2@123
 
-3- GUARDIAN LOGIN
-
+4- GUARDIAN LOGIN
 guard9786
 g@123
 
