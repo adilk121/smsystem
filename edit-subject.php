@@ -8,17 +8,11 @@ if($_REQUEST['SubClass']=='' || $_REQUEST['mainSubID']=='' ){
 <?php include("admin-sidebar.php") ;
 if(isset($_POST['Submit']))
 {	
-if(!empty($_POST['sub_name']))
-{	
-    $usercheck = "SELECT sub_name FROM tbl_subjects WHERE 1 AND sub_id='".$_REQUEST['mainSubID']."'";
-    $chek = mysqli_query($con,$usercheck);
-    $checknum = mysqli_num_rows($check);
-    if($checknum>0){
-       $sql_subjects_edit = mysqli_fetch_array($check);
-    }
 
-	$sql="update tbl_subjects set 
-	std_name='".htmlspecialchars(trim($_POST['std_name']))."'";
+  if(!empty($_POST['sub_name']))
+  {	
+	$sql="UPDATE tbl_subjects SET 
+	sub_name='".htmlspecialchars(trim($_POST['sub_name']))."' WHERE sub_id='".$_REQUEST['mainSubID']."' AND sub_class_id='".$_REQUEST['SubClass']."' ";
 	mysqli_query($con,$sql);	
   $msg='Subject Updated Successfully';
     
@@ -29,7 +23,6 @@ else{
 }
 
 }
-
 ?>
       <div class="page-wrapper">
         <div class="content container-fluid">
@@ -67,7 +60,7 @@ else{
                       <div class="col-12 col-sm-6">
                         <div class="form-group">
                           <label>Subject Name</label>
-                          <input type="text" class="form-control" name="sub_name" id="sub_name" />
+                          <input type="text" value="<?php echo db_scalar("SELECT sub_name FROM tbl_subjects WHERE sub_id='".$_REQUEST['mainSubID']."'") ?>" class="form-control" name="sub_name" id="sub_name" />
                         </div>
                       </div>
                       
