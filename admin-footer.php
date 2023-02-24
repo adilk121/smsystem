@@ -4,7 +4,7 @@
           </footer>
         </div>
       </div>
-  
+  // Here you can add comment
       <script src="assets/js/jquery-3.6.0.min.js"></script>
   
       <script src="assets/plugins/bootstrap.bundle.min.js"></script>
