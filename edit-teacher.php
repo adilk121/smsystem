@@ -2,7 +2,7 @@
 if($_REQUEST['EditId']==''){
 
     header("location:teachers.php");
-
+// if id not found go back to teachers
 }
 else
 {
