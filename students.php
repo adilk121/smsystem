@@ -1,6 +1,6 @@
 <?php include("admin-header.php") ?>
 <script language="JavaScript" type="text/javascript" src="includes/general.js"></script>
-<?php include("admin-sidebar.php") ?>
+<?php include("admin-sidebar.php") // need page?>
 <?php
 if(isset($_POST['submit']))
 { 
